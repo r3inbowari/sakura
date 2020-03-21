@@ -7,7 +7,7 @@
           <van-loading type="spinner" size="20" />
         </template>
       </van-image>
-      <p class="ms">{{ update }}</p>
+      <p class="ms van-ellipsis">{{ update }}</p>
     </div>
     <div class="van-ellipsis">{{ title }}</div>
   </div>
@@ -57,7 +57,7 @@ export default {
   border-top-left-radius: 6px;
   bottom: 5px;
   right: 0;
-  width: 60%;
+  width: 80%;
   height: 10%;
   background: #505b4c;
   opacity: 0.8;

@@ -26,20 +26,9 @@
           color="#1989fa"
           background="#ecf9ff"
           left-icon="volume-o"
-        >网站公告</van-notice-bar>
-        <BangumiSingleCard
-          style="margin: 10px;"
-          title="超科学的电磁炮"
-          imgurl="http://css.njhzmxx.com/down/1/101654066732881.jpg"
-          update="全12集"
-        ></BangumiSingleCard>
-
-        <BangumiSingleCard
-          style="margin: 10px;"
-          title="请在伸展台上微笑"
-          imgurl="http://css.njhzmxx.com/down/1/jB13751993717398.jpg"
-          update="全12集"
-        ></BangumiSingleCard>
+        >网站公告: 正在建设中...</van-notice-bar>
+        
+        <BangumiList></BangumiList>
         
         <BangumiCard></BangumiCard>
         <BangumiCard></BangumiCard>
@@ -64,18 +53,19 @@
 // @ is an alias to /src
 import "@/assets/iconfont.css";
 import BangumiCard from "@/components/BangumiCard";
-import BangumiSingleCard from "@/components/BangumiSingleCard";
+import BangumiList from "@/components/BangumiList";
 
 export default {
   name: "Home",
   components: {
     BangumiCard,
-    BangumiSingleCard
+    BangumiList
   },
   data() {
     return {
       active: 0,
-      hide: false
+      hide: false,
+      value: ''
     };
   },
   mounted() {},
