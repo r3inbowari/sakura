@@ -21,48 +21,14 @@
           <van-swipe-item>3</van-swipe-item>
           <van-swipe-item>4</van-swipe-item>
         </van-swipe>
-        <van-notice-bar mode="closeable" color="#1989fa" background="#ecf9ff" left-icon="volume-o">网站公告</van-notice-bar>
+        <van-notice-bar
+          mode="closeable"
+          color="#1989fa"
+          background="#ecf9ff"
+          left-icon="volume-o"
+        >网站公告</van-notice-bar>
         <BangumiCard></BangumiCard>
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 2
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
-        <br />内容 1
+        <BangumiCard></BangumiCard>
       </van-tab>
       <van-tab title="国漫">国漫</van-tab>
       <van-tab title="最新">最新</van-tab>
@@ -70,9 +36,13 @@
       <van-tab title="日漫">日漫</van-tab>
       <van-tab title="更多">更多</van-tab>
     </van-tabs>
-    <div>11</div>
-    <div>11</div>
-    <div>11</div>
+
+    <div>本网站提供新影视资源均系收集各大网站，本网站只提供web页面浏览服务，并不提供影片资源存储，也不参与任何视频录制、上传</div>
+    <div>Coryright © 2020 All Right Reserved</div>
+    <div>invenleey.oicp.net</div>
+    <br />
+    <br />
+    <br />
   </div>
 </template>
 

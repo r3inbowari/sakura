@@ -12,6 +12,11 @@
       </p>
 
       <p class="to-hidden theme-night" style="margin-left:10px">更新至第12集</p>
+
+      <p
+        class="van-multi-ellipsis--l2 theme-night"
+        style="margin-left:10px; margin-right: 10px; margin-top: 5px"
+      >住在海边小镇日之坂钉的行合诸是个还没寻到梦想所以略感焦躁的16岁少女。“言语当中寄宿着灵魂哦，那叫做言灵呢”这是小时候她从祖母那里听来的，在发生某件事后诸就对此深信不疑。某天，诸因为迷路来到了长年未</p>
     </div>
   </div>
 </template>
@@ -28,12 +33,13 @@ export default {
 
 <style>
 .item-detail {
+  text-overflow: -o-ellipsis-lastline;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 2;
-  -webkit-box-orient: vertical;
 }
+
 .item-tag {
   margin-right: 5px;
   margin-bottom: 5px;
@@ -50,7 +56,7 @@ export default {
 }
 
 .to-hidden {
-    /* no ... */
+  /* no ... */
   text-align: left;
   white-space: nowrap;
   overflow: hidden;
