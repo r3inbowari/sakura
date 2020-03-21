@@ -15,34 +15,8 @@
           :title="item.title"
           :imgurl="item.cover"
           :update="item.update"
-          @click="onLoad"
+          @click.native="onLoad(item.id)"
         ></BangumiSingleCard>
-
-        <!-- <BangumiSingleCard
-          style="margin: 10px;"
-          title="超科学的电磁炮"
-          imgurl="http://css.njhzmxx.com/down/1/101654066732881.jpg"
-          update="全12集"
-        ></BangumiSingleCard>
-
-        <BangumiSingleCard
-          style="margin: 10px;"
-          title="请在伸展台上微笑"
-          imgurl="http://css.njhzmxx.com/down/1/jB13751993717398.jpg"
-          update="全12集"
-        ></BangumiSingleCard>
-        <BangumiSingleCard
-          style="margin: 10px;"
-          title="请在伸展台上微笑"
-          imgurl="http://css.njhzmxx.com/down/1/jB13751993717398.jpg"
-          update="全12集"
-        ></BangumiSingleCard>
-        <BangumiSingleCard
-          style="margin: 10px;"
-          title="请在伸展台上微笑"
-          imgurl="http://css.njhzmxx.com/down/1/jB13751993717398.jpg"
-          update="全12集"
-        ></BangumiSingleCard>-->
       </div>
     </vue-scroll>
   </div>
@@ -79,8 +53,9 @@ export default {
           console.log(res);
         });
     },
-    onLoad() {
-        console.log("aaaaa")
+    onLoad(bangumiID) {
+      console.log(bangumiID);
+      this.$router.push("/video/" + bangumiID);
     }
   },
   mounted() {
