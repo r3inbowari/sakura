@@ -27,6 +27,20 @@
           background="#ecf9ff"
           left-icon="volume-o"
         >网站公告</van-notice-bar>
+        <BangumiSingleCard
+          style="margin: 10px;"
+          title="超科学的电磁炮"
+          imgurl="http://css.njhzmxx.com/down/1/101654066732881.jpg"
+          update="全12集"
+        ></BangumiSingleCard>
+
+        <BangumiSingleCard
+          style="margin: 10px;"
+          title="请在伸展台上微笑"
+          imgurl="http://css.njhzmxx.com/down/1/jB13751993717398.jpg"
+          update="全12集"
+        ></BangumiSingleCard>
+        
         <BangumiCard></BangumiCard>
         <BangumiCard></BangumiCard>
       </van-tab>
@@ -37,7 +51,7 @@
       <van-tab title="更多">更多</van-tab>
     </van-tabs>
 
-    <div>本网站提供新影视资源均系收集各大网站，本网站只提供web页面浏览服务，并不提供影片资源存储，也不参与任何视频录制、上传</div>
+    <div style="margin: 10px">本网站提供新影视资源均系收集各大网站，本网站只提供web页面浏览服务，并不提供影片资源存储，也不参与任何视频录制、上传!</div>
     <div>Coryright © 2020 All Right Reserved</div>
     <div>invenleey.oicp.net</div>
     <br />
@@ -50,11 +64,13 @@
 // @ is an alias to /src
 import "@/assets/iconfont.css";
 import BangumiCard from "@/components/BangumiCard";
+import BangumiSingleCard from "@/components/BangumiSingleCard";
 
 export default {
   name: "Home",
   components: {
-    BangumiCard
+    BangumiCard,
+    BangumiSingleCard
   },
   data() {
     return {

@@ -5,8 +5,10 @@ import Vant from 'vant'
 import 'vant/lib/index.css'
 import { Card } from 'view-design'
 import 'view-design/dist/styles/iview.css'
+import { Lazyload } from 'vant';
 Vue.component('VCard', Card)
 
+Vue.use(Lazyload);
 Vue.use(Vant)
 Vue.config.productionTip = false
 
