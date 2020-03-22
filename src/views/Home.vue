@@ -15,11 +15,39 @@
 
     <van-tabs v-model="active" :border="false" sticky>
       <van-tab title="推荐">
-        <van-swipe class="my-swipe" :autoplay="3000" indicator-color="white">
-          <van-swipe-item>1</van-swipe-item>
-          <van-swipe-item>2</van-swipe-item>
-          <van-swipe-item>3</van-swipe-item>
-          <van-swipe-item>4</van-swipe-item>
+        <van-swipe style="height: 200px" class="my-swipe" :autoplay="3000" indicator-color="white">
+          <van-swipe-item>
+            <van-image style="width: 100%" lazy-load src="http://css.njhzmxx.com/comic/focus/2018/10/201810070912.jpg">
+              <template v-slot:loading>
+                <van-loading type="spinner" size="20" />
+              </template>
+            </van-image>
+          </van-swipe-item>
+          
+          <van-swipe-item>
+            <van-image style="width: 100%" lazy-load src="http://css.njhzmxx.com/comic/focus/2016/12/29/20161229042521996.jpg">
+              <template v-slot:loading>
+                <van-loading type="spinner" size="20" />
+              </template>
+            </van-image>
+          </van-swipe-item>
+
+          <van-swipe-item>
+            <van-image style="width: 100%" lazy-load src="http://css.njhzmxx.com/comic/focus/2018/04/04/20180404045452339.jpg">
+              <template v-slot:loading>
+                <van-loading type="spinner" size="20" />
+              </template>
+            </van-image>
+          </van-swipe-item>
+
+          <van-swipe-item>
+            <van-image style="width: 100%" lazy-load src="http://css.njhzmxx.com/comic/focus/2016/12/29/20161229040456369.jpg">
+              <template v-slot:loading>
+                <van-loading type="spinner" size="20" />
+              </template>
+            </van-image>
+          </van-swipe-item>
+
         </van-swipe>
         <van-notice-bar
           mode="closeable"
@@ -27,9 +55,9 @@
           background="#ecf9ff"
           left-icon="volume-o"
         >网站公告: 正在建设中...</van-notice-bar>
-        
+
         <BangumiList></BangumiList>
-        
+
         <BangumiCard></BangumiCard>
         <BangumiCard></BangumiCard>
       </van-tab>
@@ -65,7 +93,7 @@ export default {
     return {
       active: 0,
       hide: false,
-      value: ''
+      value: ""
     };
   },
   mounted() {},
