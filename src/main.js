@@ -9,6 +9,9 @@ import { Lazyload } from 'vant'
 import vuescroll from 'vuescroll'
 import axios from 'axios'
 import VueAxios from 'vue-axios'
+import { Toast } from 'vant'
+
+Vue.use(Toast)
 
 Vue.use(VueAxios, axios)
 Vue.use(vuescroll, {

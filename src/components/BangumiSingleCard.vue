@@ -2,7 +2,7 @@
   <div style="width:100px;">
     <div class="con_img">
       <!-- <img class="image right-radius left-radius" src="@/static/demo.jpg" id="scenic_img" /> -->
-      <van-image lazy-load style="height: 140px" @load="imgLoaded" :src="imgurl">
+      <van-image radius="6" lazy-load style="height: 140px" @load="imgLoaded" :src="imgurl">
         <template v-slot:loading>
           <van-loading type="spinner" size="20" />
         </template>
@@ -69,7 +69,5 @@ export default {
   height: auto;
 }
 
-.van-image__img {
-  border-radius: 6px;
-}
+
 </style>

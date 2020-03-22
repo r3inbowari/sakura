@@ -17,7 +17,7 @@
       <van-tab title="推荐">
         <van-swipe style="height: 200px" class="my-swipe" :autoplay="3000" indicator-color="white">
           <van-swipe-item>
-            <van-image style="width: 100%" lazy-load src="http://css.njhzmxx.com/comic/focus/2018/10/201810070912.jpg">
+            <van-image radius="0" style="width: 100%" lazy-load src="http://css.njhzmxx.com/comic/focus/2018/10/201810070912.jpg">
               <template v-slot:loading>
                 <van-loading type="spinner" size="20" />
               </template>

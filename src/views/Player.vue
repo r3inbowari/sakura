@@ -1,11 +1,18 @@
 <template>
   <div class="video">
-    <h1>Sakura Project {{ index }}</h1>
+    
+    <SakuraPlayer></SakuraPlayer>
+<h1>Sakura Project {{ index }}</h1>
   </div>
 </template>
 
 <script>
+import SakuraPlayer from '@/components/VideoPlayer'
+
 export default {
+  components: {
+    SakuraPlayer
+  },
   data() {
     return {
       index: ""
