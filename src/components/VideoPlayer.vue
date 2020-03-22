@@ -1,109 +1,44 @@
 <template>
-  <div>
-    <video
-      id="first-video"
-      width="100%"
-      height="100%"
-      x5-video-player-type="h5"
-      x5-video-player-fullscreen="true"
-      x5-playsinline
-      playsinline
-      webkit-playsinline
-      preload="auto"
-      :poster="poster"
-      src="https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv/tieba-smallvideo/607272_11d5cad2110530c892f7248946ebe51b.mp4"
-      :playOrPause="playOrPause"
-      x-webkit-airplay="allow"
-      @click="pauseVideo"
-      @ended="onPlayerEnded($event)"
-    ></video>
-    <img v-show="isVideoShow" class="play" @click="playvideo" v-if="isiOS" :src="poster" />
-    <img
-      v-show="isShow"
-      class="platStart"
-      @click="androidPlay"
-      v-if="isAndroid"
-      src="http://css.njhzmxx.com/comic/focus/2016/12/29/20161229042521996.jpg"
-    />
-  </div>
+  <video-player
+    class="video-player vjs-custom-skin"
+    ref="videoPlayer"
+    :playsinline="true"
+    :options="playerOptions"
+  ></video-player>
 </template>
-
 <script>
 export default {
+  name: "BusImg",
   data() {
-    var u = navigator.userAgent;
     return {
-      //	      poster: this.appConfig('app.img_url'),
-      //	      videoUrl: this.appConfig('app.video_url'),
-      isVideoShow: true,
-      isShow: true,
-      playOrPause: true,
-      video: null,
-      isAndroid: u.indexOf("Android") > -1 || u.indexOf("Adr") > -1, // android终端
-      isiOS: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/) // ios终端
+      // 视频播放
+      playerOptions: {
+        playbackRates: [0.7, 1.0, 1.5, 2.0], //播放速度
+        autoplay: false, //如果true,浏览器准备好时开始回放。
+        muted: false, // 默认情况下将会消除任何音频。
+        loop: false, // 导致视频一结束就重新开始。
+        preload: "auto", // 建议浏览器在<video>加载元素后是否应该开始下载视频数据。auto浏览器选择最佳行为,立即开始加载视频（如果浏览器支持）
+        language: "zh-CN",
+        aspectRatio: "16:9", // 将播放器置于流畅模式，并在计算播放器的动态大小时使用该值。值应该代表一个比例 - 用冒号分隔的两个数字（例如"16:9"或"4:3"）
+        fluid: true, // 当true时，Video.js player将拥有流体大小。换句话说，它将按比例缩放以适应其容器。
+        sources: [
+          {
+            type: "video/mp4",
+            src: "https://gss3.baidu.com/6LZ0ej3k1Qd3ote6lo7D0j9wehsv/tieba-smallvideo/607272_11d5cad2110530c892f7248946ebe51b.mp4" //url地址
+            // src: "" //url地址
+          }
+        ],
+        poster: "", //你的封面地址
+        // width: document.documentElement.clientWidth,
+        notSupportedMessage: "此视频暂无法播放，请稍后再试", //允许覆盖Video.js无法播放媒体源时显示的默认信息。
+        controlBar: {
+          timeDivider: true,
+          durationDisplay: true,
+          remainingTimeDisplay: false,
+          fullscreenToggle: true //全屏按钮
+        }
+      }
     };
-  },
-  methods: {
-    playvideo(event) {
-      console.log(event);
-      if (this.isiOS) {
-        let video = document.querySelector("video");
-
-        this.isVideoShow = false;
-        video.play();
-        //          进入全屏
-        window.onresize = function() {
-          video.style.width = window.innerWidth + "px";
-          video.style.height = window.innerHeight + "px";
-        };
-      }
-    },
-    pauseVideo() {
-      //暂停\播放
-      let video = document.querySelector("video");
-      if (this.playOrPause) {
-        video.pause();
-      } else {
-        video.play();
-      }
-      this.playOrPause = !this.playOrPause;
-    },
-    onPlayerEnded(player) {
-      console.log(player);
-      //视频结束
-      this.isVideoShow = true;
-      this.isShow = true;
-    },
-    androidPlay() {
-      let video = document.querySelector("video");
-      this.isShow = false;
-      video.play();
-    }
   }
 };
 </script>
-
-<style scoped>
-#first-video {
-  object-fit: fill;
-}
-.container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 999;
-}
-.play,
-.platStart {
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 999;
-  width: 100%;
-  height: 100%;
-  object-fit: fill;
-}

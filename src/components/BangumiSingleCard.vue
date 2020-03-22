@@ -49,6 +49,7 @@ export default {
 }
 
 .ms {
+  margin-bottom: 0px;
   color: #ffffff;
   font-size: 12px;
   position: absolute;

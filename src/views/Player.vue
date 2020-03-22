@@ -1,13 +1,14 @@
 <template>
   <div class="video">
-    
     <SakuraPlayer></SakuraPlayer>
-<h1>Sakura Project {{ index }}</h1>
+    <h1>{{ bangumiDetail.title }}</h1>
+    <h1>更新至: {{ bangumiDetail.count }} 集</h1>
+    <h1>{{ bangumiDetail.detail }}</h1>
   </div>
 </template>
 
 <script>
-import SakuraPlayer from '@/components/VideoPlayer'
+import SakuraPlayer from "@/components/VideoPlayer";
 
 export default {
   components: {
@@ -15,12 +16,12 @@ export default {
   },
   data() {
     return {
-      index: ""
-    }
+      bangumiDetail: ""
+    };
   },
   mounted() {
-    console.log(this.index)
-    this.index = this.$route.params
+    this.bangumiDetail = this.$route.params.result;
+    console.log(this.bangumiDetail);
   }
-}
+};
 </script>

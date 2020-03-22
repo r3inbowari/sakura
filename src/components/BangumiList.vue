@@ -1,24 +1,42 @@
 <template>
-  <div>
-    <div style="display: flex; margin-left:10px; margin-top: 10px">
-      <img class="icon-avatar" src="../assets/av.png" alt="Smiley face" width="30" height="30" />
-      <p class="list-title">最近更新</p>
-      <p class="list-update">更新时间: 1小时前</p>
-    </div>
-
-    <vue-scroll :ops="ops">
-      <div style="display: flex;">
-        <BangumiSingleCard
-          v-for="item of lastUpdate"
-          :key="item.id"
-          style="margin: 10px;"
-          :title="item.title"
-          :imgurl="item.cover"
-          :update="item.update"
-          @click.native="onLoad(item.id)"
-        ></BangumiSingleCard>
+  <div style="margin-left:10px; margin-top: 10px">
+    <van-skeleton
+      style="height:180px"
+      avatar-shape="square"
+      avatar-size="60"
+      title
+      avatar
+      :row="4"
+      :loading="loading"
+    >
+      
+      <van-row>
+        <van-col span="2">
+          <img class="icon-avatar" src="../assets/tv.png" alt="Smiley face" width="30" height="30" />
+        </van-col>
+        <van-col span="10">
+          <p class="list-title">最近更新</p>
+        </van-col>
+        <van-col span="12">
+          <p class="list-update">更新: 1小时前</p>
+        </van-col>
+      </van-row>
+      <div>
+        <vue-scroll :ops="ops">
+          <div style="display: flex;">
+            <BangumiSingleCard
+              v-for="item of lastUpdate"
+              :key="item.id"
+              style="margin: 10px;"
+              :title="item.title"
+              :imgurl="item.cover"
+              :update="item.update"
+              @click.native="loadBangumiDetail(item.id)"
+            ></BangumiSingleCard>
+          </div>
+        </vue-scroll>
       </div>
-    </vue-scroll>
+    </van-skeleton>
   </div>
 </template>
 
@@ -38,7 +56,8 @@ export default {
           disable: true
         }
       },
-      lastUpdate: []
+      lastUpdate: [],
+      loading: true
     };
   },
   methods: {
@@ -48,55 +67,41 @@ export default {
         .then(res => {
           this.lastUpdate = res.data.result;
           console.log(this.lastUpdate);
+          this.loading = false;
         })
         .catch(res => {
           console.log(res);
         });
     },
     loadBangumiDetail(bid) {
+      this.openLoadingDialog();
       this.axios
         .get("apis/detail?bid=" + bid)
         .then(res => {
-          this.lastUpdate = res.data.result;
-          console.log(this.lastUpdate);
+          this.$toast.clear();
+          this.onPushDetail(res.data.result);
         })
         .catch(res => {
           console.log(res);
+          this.$toast.clear();
         });
     },
-    onLoad(bangumiID) {
-      console.log(bangumiID);
-      this.onLoadingDialog(function(self) {
-        // self.$router.push("/video/" + bangumiID);
-        self.$router.push({
-            name: 'video',
-            params: {
-                bid: bangumiID
-            }
-        });
+    onPushDetail(res) {
+      let self = this;
+      // self.$router.push("/video/" + bangumiID);
+      self.$router.push({
+        name: "video",
+        params: {
+          result: res
+        }
       });
     },
-    onLoadingDialog(callback) {
-      let self = this;
-      const toast = this.$toast.loading({
+    openLoadingDialog() {
+      this.$toast.loading({
         duration: 0,
         forbidClick: true,
         message: "加载中"
       });
-
-      let second = 3;
-      const timer = setInterval(() => {
-        second--;
-        if (second) {
-          toast.message = `倒计时 ${second} 秒`;
-        } else {
-          clearInterval(timer);
-          // 手动清除 Toast
-          this.$toast.clear();
-          this.loadBangumiDetail(4748)
-          callback(self);
-        }
-      }, 1000);
     }
   },
   mounted() {
@@ -108,17 +113,16 @@ export default {
 <style>
 .list-title {
   text-align: left;
-  margin-left: 8px;
-  margin-top: 4px;
   font-size: 16px;
-  width: 40%;
+  margin: 5px 5px;
 }
 
 .list-update {
-  margin-top: 4px;
-  color: burlywood;
-  float: right;
-  width: 60%;
+  text-align: right;
   font-size: 16px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  margin-right: 15px;
+  color: burlywood;
 }
 </style>
