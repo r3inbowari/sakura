@@ -1,4 +1,5 @@
 <template>
+
   <div class="home" ref="bt">
     <van-nav-bar title="标题" left-text="返回" left-arrow :border="false">
       <template #title>
@@ -15,7 +16,7 @@
 
     <van-tabs v-model="active" :border="false" sticky>
       <van-tab title="推荐">
-        <van-swipe style="height: 200px" class="my-swipe" :autoplay="3000" indicator-color="white">
+        <van-swipe style="height: 160px" class="my-swipe" :autoplay="3000" indicator-color="white">
           <van-swipe-item>
             <van-image radius="0" style="width: 100%" lazy-load src="http://css.njhzmxx.com/comic/focus/2018/10/201810070912.jpg">
               <template v-slot:loading>

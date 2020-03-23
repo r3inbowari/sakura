@@ -1,7 +1,7 @@
 <template>
   <div style="margin-left:10px; margin-top: 10px">
     <van-skeleton
-      style="height:180px"
+      style="height:180px; margin-top: 30px"
       avatar-shape="square"
       avatar-size="60"
       title
@@ -9,7 +9,6 @@
       :row="4"
       :loading="loading"
     >
-      
       <van-row>
         <van-col span="2">
           <img class="icon-avatar" src="../assets/tv.png" alt="Smiley face" width="30" height="30" />
@@ -31,7 +30,7 @@
               :title="item.title"
               :imgurl="item.cover"
               :update="item.update"
-              @click.native="loadBangumiDetail(item.id)"
+              @click.native="loadBangumiURL(item.id, 11)"
             ></BangumiSingleCard>
           </div>
         </vue-scroll>
@@ -86,13 +85,28 @@ export default {
           this.$toast.clear();
         });
     },
-    onPushDetail(res) {
+    loadBangumiURL(bid, num) {
+      this.openLoadingDialog();
+      this.axios
+        .get("apis/play?bid=" + bid + "&num=" + num)
+        .then(res => {
+          this.$toast.clear();
+          console.log(res.data.result);
+          this.onPushDetail(bid, res.data.result);
+        })
+        .catch(res => {
+          console.log(res);
+          this.$toast.clear();
+        });
+    },
+    onPushDetail(id, playurl) {
       let self = this;
       // self.$router.push("/video/" + bangumiID);
       self.$router.push({
         name: "video",
         params: {
-          result: res
+          id: id,
+          playurl: playurl
         }
       });
     },
