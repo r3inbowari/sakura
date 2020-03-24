@@ -17,7 +17,7 @@
           <p class="list-title">最近更新</p>
         </van-col>
         <van-col span="12">
-          <p class="list-update">更新: 1小时前</p>
+          <p class="list-update">更新: 5分钟前</p>
         </van-col>
       </van-row>
       <div>

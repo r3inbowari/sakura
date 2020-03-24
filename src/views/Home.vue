@@ -55,7 +55,7 @@
           color="#1989fa"
           background="#ecf9ff"
           left-icon="volume-o"
-        >网站公告: 正在建设中...</van-notice-bar>
+        >网站公告: 正在努力建设中...</van-notice-bar>
 
         <BangumiList></BangumiList>
 
